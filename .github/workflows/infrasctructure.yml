@@ -1,0 +1,31 @@
+name: infrastructure
+on: 
+  push:
+    branches:
+      - "main"
+      - "master"
+    paths:
+      - "packages/container/**"
+
+defaults:
+  run:
+    working-directory: packages/container
+
+jobs: 
+  createBucket:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Run Terraform
+        run: |
+          cd terraform
+          terraform init
+          terraform apply -auto-approve
+
