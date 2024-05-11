@@ -7,7 +7,7 @@ on:
 
 defaults:
   run:
-    working-directory: packages/container
+    working-directory: terraform
 
 jobs: 
   createBucket:
@@ -23,7 +23,6 @@ jobs:
           aws-region: us-east-1
       - name: Run Terraform
         run: |
-          cd terraform
           terraform init
           terraform apply -auto-approve
 
