@@ -9,7 +9,9 @@ const prodConfig = {
   mode: 'production',
   output: {
     // this template because cash questions
-    filename: '[name].[contenthash].js'
+    filename: '[name].[contenthash].js',
+    publicPath: '/container/latest/' // in the s3 to access the files that are in bucket/container/latest, need from this
+
   },
   plugins: [
     new ModuleFederationPlugin({
