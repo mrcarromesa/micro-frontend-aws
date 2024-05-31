@@ -6,6 +6,8 @@
     "build": "webpack --config config/webpack.prod.js"
   },
   "dependencies": {
+    "@mui/icons-material": "^5.15.17",
+    "@mui/material": "^5.15.17",
     "react": "^18.0.1",
     "react-dom": "^18.0.1",
     "react-router-dom": "^5.2.0"
