@@ -84,6 +84,7 @@ export default function Album() {
                     className={classes?.cardMedia}
                     image="https://picsum.photos/seed/picsum/400/200"
                     title="Image title"
+                    height="200"
                   />
                   <CardContent className={classes?.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
